@@ -20,16 +20,20 @@ Gömülü Yazılım: C++ (Arduino/PlatformIO), HTTPUpdate, PubSubClient, Arduino
 
 Backend: Python, FastAPI, Uvicorn.
 
-📂 Proje Yapısı
-Plaintext
-├── esp32_firmware/
-│   └── main.cpp          # ESP32 C++ Kodları
-├── backend_api/
-│   ├── main1.py          # FastAPI Sunucu Kodları
-│   └── updates/          # Firmware dosyalarının (.bin) tutulduğu klasör
-│       └── v2.1.7/
+## 📂 Proje Yapısı
+
+Proje iki ana dizinden oluşmaktadır: `firmware` (C++ / Arduino) ve `backend` (Python / FastAPI).
+
+```text
+├── backend/
+│   ├── main1.py            # FastAPI sunucu ve güncelleme mantığı
+│   └── updates/            # .bin dosyalarının versiyonlanarak saklandığı klasör
+│       └── v2.1.7/         # Örnek versiyon klasörü
 │           └── firmware.bin
+├── firmware/
+│   └── main.cpp            # ESP32 sensör okuma, MQTT ve OTA kodları
 └── README.md
+
 🚀 Kurulum ve Çalıştırma
 1. Backend Sunucusunu Başlatma
 
