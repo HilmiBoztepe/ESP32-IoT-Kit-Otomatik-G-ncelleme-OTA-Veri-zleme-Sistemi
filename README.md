@@ -34,7 +34,7 @@ Proje iki ana dizinden oluşmaktadır: `firmware` (C++ / Arduino) ve `backend` (
 │   └── main.cpp            # ESP32 sensör okuma, MQTT ve OTA kodları
 └── README.md
 
-🚀 Kurulum ve Çalıştırma
+## 🚀 Kurulum ve Çalıştırma
 1. Backend Sunucusunu Başlatma
 
 Sunucu, cihazların veri göndereceği ve güncellemeleri kontrol edeceği merkezdir.
@@ -52,7 +52,7 @@ main.cpp dosyasındaki API_BASE_URL ve mqtt_server değişkenlerini kendi bilgis
 
 Arduino IDE veya PlatformIO kullanarak kodu cihazınıza yükleyin.
 
-🔄 OTA (Güncelleme) Mantığı Nasıl Çalışır?
+## 🔄 OTA (Güncelleme) Mantığı Nasıl Çalışır?
 Sorgu: ESP32, belirli aralıklarla /check-update endpoint'ine mevcut VERSION bilgisini gönderir.
 
 Kıyaslama: FastAPI sunucusu, updates/ klasöründeki en yüksek versiyon numarasını bulur.
@@ -61,7 +61,7 @@ Yanıt: Eğer sunucudaki versiyon cihazdakinden yüksekse, sunucu .bin dosyasın
 
 Güncelleme: ESP32 httpUpdate kütüphanesini kullanarak yeni yazılımı indirir, kurar ve kendini yeniden başlatır.
 
-📝 Veri Akış Şeması
+## 📝 Veri Akış Şeması
 Sensörler -> Veri Okuma (HDC1080 & BMP180)
 
 ESP32 -> Veri İşleme (Dew Point Hesabı)
@@ -72,5 +72,5 @@ MQTT Publish -> Broker (Node-RED veya Home Assistant entegrasyonu için)
 
 HTTP GET -> Update Server (Versiyon Kontrolü)
 
-🤝 Katkıda Bulunma
+## 🤝 Katkıda Bulunma
 Bu proje Duranka Teknoloji kiti üzerinde geliştirilmiştir. Yeni özellikler (Deep Sleep modu, farklı sensör destekleri vb.) eklemek için "Pull Request" gönderebilirsiniz.
