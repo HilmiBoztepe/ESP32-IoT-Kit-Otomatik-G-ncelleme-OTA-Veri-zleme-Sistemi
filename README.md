@@ -3,6 +3,7 @@
 Bu proje, Duranka Teknoloji ESP32 tabanlı sensör kitini kullanarak; verileri hem bir web paneline (FastAPI) hem de MQTT broker'ına aktaran, aynı zamanda kendi yazılım versiyonunu otomatik olarak güncelleyebilen (Self-Updating) bir IoT ekosistemidir.
 
 ✨ Öne Çıkan Özellikler
+
 🌐 Akıllı OTA Güncelleme: Cihaz, API üzerinden sunucudaki en güncel versiyonu kontrol eder. Eğer yeni bir .bin dosyası varsa kendini otomatik olarak günceller.
 
 📊 Çift Kanallı Veri Aktarımı: Veriler hem HTTP Post ile FastAPI Dashboard'a hem de MQTT üzerinden yayınlanır.
@@ -63,6 +64,29 @@ Kıyaslama: FastAPI sunucusu, updates/ klasöründeki en yüksek versiyon numara
 Yanıt: Eğer sunucudaki versiyon cihazdakinden yüksekse, sunucu .bin dosyasının indirme linkini gönderir.
 
 Güncelleme: ESP32 httpUpdate kütüphanesini kullanarak yeni yazılımı indirir, kurar ve kendini yeniden başlatır.
+
+# 📡 MQTT Spesifikasyonları
+Proje, verileri bir MQTT Broker üzerinden hiyerarşik bir yapıda yayınlar. Bu sayede veriler her yerden izlenebilir.
+
+🏗️ Topic Yapısı
+| Topic | Açıklama | Örnek Payload |
+| :--- | :--- | :--- |
+| `iot/sensor/data` | Anlık Sensör Verileri | `{"temp": 25.4, "hum": 45, "ver": "2.1.0"}` |
+| `iot/sensor/status` | Bağlantı Durumu (LWT) | `online` / `offline` |
+| `iot/sensor/ota` | Güncelleme Logları | `Update in progress...` |
+
+📋 JSON Veri Formatı
+```json
+{
+  "device_id": "ESP32_A1B2",
+  "version": "2.1.7",
+  "sensors": {
+    "temperature": 25.4,
+    "humidity": 48.2,
+    "pressure": 1012.5,
+    "dew_point": 14.2
+  }
+}
 
 # 📝 Veri Akış Şeması
 Sensörler -> Veri Okuma (HDC1080 & BMP180)
