@@ -87,6 +87,7 @@ Proje, verileri bir MQTT Broker üzerinden hiyerarşik bir yapıda yayınlar. Bu
     "dew_point": 14.2
   }
 }
+```
 
 # 📝 Veri Akış Şeması
 Sensörler -> Veri Okuma (HDC1080 & BMP180)
