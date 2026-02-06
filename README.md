@@ -1,4 +1,4 @@
-# ESP32-IoT-Kit-Otomatik-G-ncelleme-OTA-Veri-zleme-Sistemi
+# ESP32-IoT-Kit-Otomatik-Günncelleme-OTA-Veri-İzleme-Sistemi
 🚀 ESP32 IoT Kit: Otomatik Güncelleme (OTA) & Veri İzleme Sistemi
 Bu proje, Duranka Teknoloji ESP32 tabanlı sensör kitini kullanarak; verileri hem bir web paneline (FastAPI) hem de MQTT broker'ına aktaran, aynı zamanda kendi yazılım versiyonunu otomatik olarak güncelleyebilen (Self-Updating) bir IoT ekosistemidir.
 
@@ -32,7 +32,7 @@ Proje iki ana dizinden oluşmaktadır: `firmware` (C++ / Arduino) ve `backend` (
 │           └── firmware.bin
 ├── firmware/
 │   └── main.cpp            # ESP32 sensör okuma, MQTT ve OTA kodları
-└── README.md
+└── README.md'''
 
 ### 🚀 Kurulum ve Çalıştırma
 1. Backend Sunucusunu Başlatma
