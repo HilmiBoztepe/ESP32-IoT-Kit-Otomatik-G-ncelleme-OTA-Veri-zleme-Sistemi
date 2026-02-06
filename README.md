@@ -40,9 +40,11 @@ Proje iki ana dizinden oluşmaktadır: `firmware` (C++ / Arduino) ve `backend` (
 
 Sunucu, cihazların veri göndereceği ve güncellemeleri kontrol edeceği merkezdir.
 
-Bash
+```python
 pip install fastapi uvicorn httpx pydantic
 python main1.py
+```
+
 Dashboard: http://localhost:8000/dashboard adresinden verileri izleyebilirsiniz.
 
 Güncelleme Kontrolü: Sunucu updates/ klasöründeki klasör isimlerini (v1.0.1 vb.) versiyon olarak kabul eder.
