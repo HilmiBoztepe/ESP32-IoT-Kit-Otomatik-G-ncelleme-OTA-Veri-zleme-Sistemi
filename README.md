@@ -8,7 +8,7 @@ Bu proje, Duranka Teknoloji ESP32 tabanlı sensör kitini kullanarak; verileri h
 
 1. 🌐 Akıllı OTA Güncelleme: Cihaz, API üzerinden sunucudaki en güncel versiyonu kontrol eder. Eğer yeni bir .bin dosyası varsa kendini otomatik olarak günceller.
 
-2.📊 Çift Kanallı Veri Aktarımı: Veriler hem HTTP Post ile FastAPI Dashboard'a hem de MQTT üzerinden yayınlanır.
+2. 📊 Çift Kanallı Veri Aktarımı: Veriler hem HTTP Post ile FastAPI Dashboard'a hem de MQTT üzerinden yayınlanır.
 
 3. 🌡️ Gelişmiş Sensör Entegrasyonu: HDC1080 ve BMP180 ile Sıcaklık, Nem, Basınç, Rakım ve Çiğ Noktası (Dew Point) hesaplama.
 
