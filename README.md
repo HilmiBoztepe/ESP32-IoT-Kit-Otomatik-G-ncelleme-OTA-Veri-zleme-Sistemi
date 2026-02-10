@@ -1,18 +1,20 @@
-# ESP32-IoT-Kit-Otomatik-Güncelleme-OTA-Veri-İzleme-Sistemi
+# *ESP32-IoT-Kit-Otomatik-Güncelleme-OTA & Veri-İzleme-Sistemi*
+
 🚀 ESP32 IoT Kit: Otomatik Güncelleme (OTA) & Veri İzleme Sistemi
+
 Bu proje, Duranka Teknoloji ESP32 tabanlı sensör kitini kullanarak; verileri hem bir web paneline (FastAPI) hem de MQTT broker'ına aktaran, aynı zamanda kendi yazılım versiyonunu otomatik olarak güncelleyebilen (Self-Updating) bir IoT ekosistemidir.
 
 ✨ Öne Çıkan Özellikler
 
-🌐 Akıllı OTA Güncelleme: Cihaz, API üzerinden sunucudaki en güncel versiyonu kontrol eder. Eğer yeni bir .bin dosyası varsa kendini otomatik olarak günceller.
+1. 🌐 Akıllı OTA Güncelleme: Cihaz, API üzerinden sunucudaki en güncel versiyonu kontrol eder. Eğer yeni bir .bin dosyası varsa kendini otomatik olarak günceller.
 
-📊 Çift Kanallı Veri Aktarımı: Veriler hem HTTP Post ile FastAPI Dashboard'a hem de MQTT üzerinden yayınlanır.
+2.📊 Çift Kanallı Veri Aktarımı: Veriler hem HTTP Post ile FastAPI Dashboard'a hem de MQTT üzerinden yayınlanır.
 
-🌡️ Gelişmiş Sensör Entegrasyonu: HDC1080 ve BMP180 ile Sıcaklık, Nem, Basınç, Rakım ve Çiğ Noktası (Dew Point) hesaplama.
+3. 🌡️ Gelişmiş Sensör Entegrasyonu: HDC1080 ve BMP180 ile Sıcaklık, Nem, Basınç, Rakım ve Çiğ Noktası (Dew Point) hesaplama.
 
-📱 Web Tabanlı WiFi Yapılandırma: Cihaz ilk açıldığında AP (Access Point) modunda çalışarak kullanıcıya WiFi bilgilerini girebileceği bir arayüz sunar.
+4. 📱 Web Tabanlı WiFi Yapılandırma: Cihaz ilk açıldığında AP (Access Point) modunda çalışarak kullanıcıya WiFi bilgilerini girebileceği bir arayüz sunar.
 
-🖥️ OLED Dashboard: Cihaz üzerindeki ekran aracılığıyla anlık durum ve versiyon takibi.
+5. 🖥️ OLED Dashboard: Cihaz üzerindeki ekran aracılığıyla anlık durum ve versiyon takibi.
 
 🛠️ Kullanılan Teknolojiler
 Donanım: Wemos Lolin32 Lite, HDC1080, BMP180, SSD1306 OLED Ekran.
@@ -36,7 +38,7 @@ Proje iki ana dizinden oluşmaktadır: `firmware` (C++ / Arduino) ve `backend` (
 └── README.md
 ```
 
-# 🚀 Kurulum ve Çalıştırma
+## 🚀 Kurulum ve Çalıştırma
 1. Backend Sunucusunu Başlatma
 
 Sunucu, cihazların veri göndereceği ve güncellemeleri kontrol edeceği merkezdir.
@@ -56,16 +58,16 @@ main.cpp dosyasındaki API_BASE_URL ve mqtt_server değişkenlerini kendi bilgis
 
 Arduino IDE veya PlatformIO kullanarak kodu cihazınıza yükleyin.
 
-# 🔄 OTA (Güncelleme) Mantığı Nasıl Çalışır?
-Sorgu: ESP32, belirli aralıklarla /check-update endpoint'ine mevcut VERSION bilgisini gönderir.
+## 🔄 OTA (Güncelleme) Mantığı Nasıl Çalışır?
+- Sorgu: ESP32, belirli aralıklarla /check-update endpoint'ine mevcut VERSION bilgisini gönderir.
 
-Kıyaslama: FastAPI sunucusu, updates/ klasöründeki en yüksek versiyon numarasını bulur.
+- Kıyaslama: FastAPI sunucusu, updates/ klasöründeki en yüksek versiyon numarasını bulur.
 
-Yanıt: Eğer sunucudaki versiyon cihazdakinden yüksekse, sunucu .bin dosyasının indirme linkini gönderir.
+- Yanıt: Eğer sunucudaki versiyon cihazdakinden yüksekse, sunucu .bin dosyasının indirme linkini gönderir.
 
-Güncelleme: ESP32 httpUpdate kütüphanesini kullanarak yeni yazılımı indirir, kurar ve kendini yeniden başlatır.
+- Güncelleme: ESP32 httpUpdate kütüphanesini kullanarak yeni yazılımı indirir, kurar ve kendini yeniden başlatır.
 
-# 📡 MQTT Spesifikasyonları
+## 📡 MQTT Spesifikasyonları
 Proje, verileri bir MQTT Broker üzerinden hiyerarşik bir yapıda yayınlar. Bu sayede veriler her yerden izlenebilir.
 
 🏗️ Topic Yapısı
@@ -89,16 +91,16 @@ Proje, verileri bir MQTT Broker üzerinden hiyerarşik bir yapıda yayınlar. Bu
 }
 ```
 
-# 📝 Veri Akış Şeması
-Sensörler -> Veri Okuma (HDC1080 & BMP180)
+## 📝 Veri Akış Şeması
+* Sensörler -> Veri Okuma (HDC1080 & BMP180)
 
-ESP32 -> Veri İşleme (Dew Point Hesabı)
+* ESP32 -> Veri İşleme (Dew Point Hesabı)
 
-HTTP POST -> FastAPI Dashboard (Görselleştirme)
+* HTTP POST -> FastAPI Dashboard (Görselleştirme)
 
-MQTT Publish -> Broker (Node-RED veya Home Assistant entegrasyonu için)
+* MQTT Publish -> Broker (Node-RED veya Home Assistant entegrasyonu için)
 
-HTTP GET -> Update Server (Versiyon Kontrolü)
+* HTTP GET -> Update Server (Versiyon Kontrolü)
 
 # 🤝 Katkıda Bulunma
 Bu proje Duranka Teknoloji kiti üzerinde geliştirilmiştir. Yeni özellikler (Deep Sleep modu, farklı sensör destekleri vb.) eklemek için "Pull Request" gönderebilirsiniz.
